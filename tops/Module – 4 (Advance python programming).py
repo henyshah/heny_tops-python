@@ -193,7 +193,7 @@ except smallerException:
 # · Polymorphism 
 # · Abstraction 
 # · Encapsulation.
-# NO, Java does not support Multiple Inheritance; however, Java interfaces help us achieve Multiple Inheritance of type in Java.
+# YES
 
 
 # How to Define a Class in Python? What Is Self? Give An Example Of A Python Class 

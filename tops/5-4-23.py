@@ -8,7 +8,7 @@ inheritance: one class derives properties of another class
  2)multi level inheritance
  3)multiple inheritance
  4)heierarchical inheritance
- 5)hybrid heritance
+ 5)hybrid inheritance
  """
 
 # single level inheritance
