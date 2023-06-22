@@ -1,0 +1,105 @@
+{% extends 'chairman/s_index.html' %}
+{% load static %}
+        
+            {% block content%}
+            <section class="content home">
+               
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2><strong>Welcome to My Profile</strong></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid"> <br>                
+                
+    <div class="row clearfix profile-page">
+        <div class="col-lg-4 col-md-12">
+            <div class="card profile-header">
+                <div class="body text-center">
+                    <div class="profile-image"> <img src="{{sid.pic.url}}" alt=""> </div>
+                    <div>
+                        <h4 class="m-b-0"><strong>{{sid.firstname}} {{sid.lastname}} </strong></h4>
+                        <span class="job_post">{{uid.role}}</span>
+                        <p>Ahmedabad</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary btn-round">Follow</button>
+                        <button class="btn btn-primary btn-round btn-simple">Message</button>
+                    </div>
+                    </div>                    
+            </div>                               
+                             
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="card">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Account">Account</a></li>                        
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane body active" id="about">
+                        <p></p>
+                        <p></p>
+                        
+                        
+                    </div>
+                    <div class="tab-pane body" id="Account">
+                        <form action= "{% url 'Society-Member-change-password' %}" method ="POST">
+                            {% csrf_token %}
+                                <div class="form-group">
+                                <input type="text" class="form-control" placeholder="email" value="{{sid.email}}"readonly disabled>
+                                </div>
+                                <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Current Password" name="surrentpassword">
+                                </div>
+                                <div class="form-group">
+                                <input type="password" class="form-control" placeholder="New Password" name="newpassword">
+                                </div>
+                                <input type="submit" class="btn btn-info btn-round" value= "Save Changes">
+                        </form>
+                        <hr>
+                        <form action="{% url 'Society-Member-update-chairman-profile' %}" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div class="row clearfix">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="First Name" name="firstname" value="{{sid.firstname}}"> 
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Last Name" name="lastname" value="{{sid.lastname}}" >
+                                </div>
+                            </div>                                    
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="house_no" name="house_no" value="{{sid.house_no}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="contact_no" name="contact_no" value="{{sid.contact_no}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <input type="file" class="form-control" name="mypicture">
+                                </div>
+                            <div class="col-md-12">
+                                <input type = "submit" class="btn btn-primary btn-round" value="Save Changes">
+                            </div>
+                        </div>
+                        </form>    
+                    </div>                        
+                </div>
+            </div>
+                           
+        </div>
+    </div>
+
+            </div>
+        </section>
+        {% endblock%}
